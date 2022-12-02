@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/index.css">
+
+    <script src="/src/scripts/users.js" defer></script>
+    <script src="/src/scripts/sugestUsers.js" defer></script>
+    <script src="/src/scripts/posts.js" defer></script>
+    <script src="/src/scripts/index.js" defer></script>
+
+    <title>Rede Social</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="/src/assets/img/logo.svg" alt="Logo">
+            <button>Sair</button>
+        </nav>
+    </header>
+    <div class="container">
+        <main class="perfil">
+            <img src="/src/assets/img/user1.svg" alt="Perfil" class="perfil__img">
+            <div class="perfil__name">
+                <h4>Samuel Leão</h4>
+                <p>Front and Engineer</p>
+            </div>
+        </main>
+        <div class="textarea__main">
+            <input type="text" class="textarea__main--input" placeholder="Digitar título do post">
+            <textarea name="" id="" cols="" rows="" class="textarea__main--textarea"
+                placeholder="Digitar descrição do post"></textarea>
+            <button class="textarea__main--btn">Postar</button>
+        </div>
+        <aside>
+            <div class="sugested__perfil">
+                <h2>Sugestões para você seguir</h2>
+                <div class="sugested__card">
+
+                </div>
+            </div>
+        </aside>
+        <section class="section__post">
+            <h2>Posts</h2>
+            <div class="section__card">
+
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
