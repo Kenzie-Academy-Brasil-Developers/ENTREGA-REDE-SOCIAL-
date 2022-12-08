@@ -133,6 +133,7 @@ renderModal()
 
 function createModal(id) {
     let modal = document.createElement("div")
+    let divClose = document.createElement("div")
     let user = document.createElement("div")
     let img = document.createElement("img")
     let title = document.createElement("div")
@@ -183,9 +184,12 @@ function createModal(id) {
         document.querySelector('.container__modal').close()
     })
 
+    divClose.className = "div__close"
+
     title.append(name, info)
     user.append(img, title)
-    modal.append(close, user, h2, p)
+    divClose.append(user, close)
+    modal.append(divClose, h2, p)
 
     return modal
 }

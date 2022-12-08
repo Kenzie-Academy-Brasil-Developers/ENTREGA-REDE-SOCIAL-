@@ -337,7 +337,7 @@ aside>h2 {
     top: 0;
     left: 0;
     width: 761px;
-    height: 544px;
+    height: 410px;
     max-width: 100vw;
     background-color: #FFFFFF;
     border: 2px solid var(--grey4);
@@ -349,9 +349,9 @@ aside>h2 {
 .modal {
     width: 90%;
     margin: 0 auto;
-    gap: 1rem;
     display: flex;
     flex-direction: column;
+
     gap: 3rem;
 }
 
@@ -364,7 +364,11 @@ aside>h2 {
     color: #868E96;
     font-weight: bold;
     margin-top: 1rem;
+}
 
+.div__close {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media (min-width: 769px) {
