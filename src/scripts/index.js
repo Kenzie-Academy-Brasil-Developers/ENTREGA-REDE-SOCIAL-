@@ -1,72 +1,59 @@
-function crateCard(user) {
+function createUser(arr) {
+    let user = document.createElement("div")
+    let img = document.createElement("img")
+    let title = document.createElement("div")
+    let name = document.createElement("h4")
+    let info = document.createElement("p")
 
+    user.className = "user"
 
-    const divPerfil = document.createElement("div")
-    const imgPerfil = document.createElement("img")
-    const divName = document.createElement("div")
-    const h4Name = document.createElement("h4")
-    const pName = document.createElement("p")
-    const btnPerfil = document.createElement("button")
+    img.className = "user__img"
+    img.src = arr.img
+    img.alt = arr.user
 
-    divPerfil.classList.add("perfil")
+    title.className = "title"
 
-    imgPerfil.src = user.img
-    imgPerfil.alt = user.user
-    imgPerfil.classList.add("perfil__img")
+    name.innerText = arr.user
+    name.className = "user__h4"
 
-    divName.classList.add("perfil__name")
+    info.innerText = arr.stack
+    info.className = "user__p"
 
-    h4Name.classList.add("perfil__name--h4")
-    h4Name.innerText = user.user
+    title.append(name, info)
+    user.append(img, title)
 
-    pName.classList.add("perfil__name--p")
-    pName.innerText = user.stack
-
-
-    divName.append(h4Name, pName)
-    divPerfil.append(imgPerfil, divName)
-
-    return divPerfil
+    return user
 }
 
-function crateSugested(arr, user1, user2, user3) {
-
-    const cardContainer = document.querySelector(".sugested__card")
+function createSugested(arr, user1, user2, user3) {
+    const aside__div = document.querySelector(".aside__div")
 
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i].id == Number(user1) || (arr[i].id == Number(user2)) || (arr[i].id == Number(user3))) {
-            const divPerfil = document.createElement("div")
-            const imgPerfil = document.createElement("img")
-            const divName = document.createElement("div")
-            const h4Name = document.createElement("h4")
-            const pName = document.createElement("p")
-            const btnPerfil = document.createElement("button")
+        if (arr[i].id == Number(user1) || arr[i].id == Number(user2) || arr[i].id == Number(user3)) {
+            let sugestedUsers = createUser(arr[i])
 
-            divPerfil.classList.add("perfil")
+            let sugested = document.createElement("div")
+            sugested.className = "sugested"
 
-            imgPerfil.src = arr[i].img
-            imgPerfil.alt = arr[i].user
-            imgPerfil.classList.add("perfil__img")
+            let button = document.createElement("button")
+            button.className = "seguir"
+            button.innerHTML = "Seguir"
 
-            divName.classList.add("perfil__name")
+            button.addEventListener("click", () => {
+                button.classList.toggle("seguindo")
+                if (button.classList == "seguir seguindo") {
+                    button.innerHTML = "Seguindo"
+                } else {
+                    button.innerHTML = "Seguir"
+                }
+            })
 
-            h4Name.classList.add("perfil__name--h4")
-            h4Name.innerText = arr[i].user
-
-            pName.classList.add("perfil__name--p")
-            pName.innerText = arr[i].stack
-
-            btnPerfil.classList.add("perfil__sugested--btn")
-            btnPerfil.innerText = "Seguir"
-            btnPerfil.dataset.id = arr[i].id
-
-            divName.append(h4Name, pName)
-            divPerfil.append(imgPerfil, divName, btnPerfil)
-            cardContainer.appendChild(divPerfil)
+            sugested.append(sugestedUsers, button)
+            aside__div.appendChild(sugested)
         }
     }
 }
-crateSugested(users, 3, 7, 6)
+createSugested(users, 3, 7, 6)
 
 function findUser(userId) {
     for (let i = 0; i < users.length; i++) {
@@ -76,34 +63,129 @@ function findUser(userId) {
     }
 }
 
-
 function createPost(arr) {
 
-    const sectionPost = document.querySelector(".section__post")
+    const post = document.querySelector(".posts")
 
     for (let i = 0; i < arr.length; i++) {
-        const user = findUser(arr[i].user)
-        const cardUser = crateCard(user)
+        const userPost = findUser(arr[i].user)
+        let user = createUser(userPost)
 
-        const divPosts = document.createElement("div")
-        const divContent = document.createElement("div")
-        const h2Content = document.createElement("h2")
-        const pContent = document.createElement("p")
+        let card = document.createElement("div")
+        let title = document.createElement("h2")
+        let text = document.createElement("p")
+        let div = document.createElement("div")
+        const openPost = document.createElement("button")
+        let div2 = document.createElement("div")
+        let like = document.createElement("button")
+        let p = document.createElement("p")
 
-        divPosts.classList.add("post__card")
-        divContent.classList.add("post__contents")
+        card.className = "post"
 
-        h2Content.classList.add("post__contents--h2")
-        h2Content.innerText = arr[i].title
+        title.className = "post__h2"
+        title.innerText = arr[i].title
 
-        pContent.classList.add("post__contents--p")
-        pContent.innerText = arr[i].text
+        text.className = "post__p"
+        text.innerText = arr[i].text
 
-        divContent.append(h2Content, pContent)
-        divPosts.append(cardUser, divContent)
-        sectionPost.appendChild(divPosts)
+        div.className = "post__div"
+
+        openPost.className = "open__modal"
+        openPost.innerHTML = "Abrir post"
+        openPost.dataset.id = arr[i].id_post
+
+        div2.className = "like__div"
+
+        like.className = "like"
+        like.innerHTML = "Curtir"
+
+
+        p.className = "like__number"
+        p.innerHTML = "42"
+
+        div2.append(like, p)
+        div.append(openPost, div2)
+        card.append(user, title, text, div)
+        post.appendChild(card)
     }
 }
 createPost(posts)
 
+function renderModal() {
+    const modal = document.querySelector(".container__modal")
+    let buttons = document.querySelectorAll(".open__modal")
+    const body = document.querySelector("body")
 
+    for (let i = 0; i < buttons.length; i++) {
+        let button = buttons[i]
+
+        button.addEventListener("click", (e) => {
+            const modalContent = createModal(button.dataset.id)
+            console.log(button.dataset.id)
+            modal.append(modalContent)
+
+            modal.showModal()
+        })
+    }
+
+}
+renderModal()
+
+function createModal(id) {
+    let modal = document.createElement("div")
+    let user = document.createElement("div")
+    let img = document.createElement("img")
+    let title = document.createElement("div")
+    let name = document.createElement("h4")
+    let info = document.createElement("p")
+    let h2 = document.createElement("h2")
+    let p = document.createElement("p")
+    let close = document.createElement("button")
+    let element
+    let dataUser
+
+    for (let i = 0; i < posts.length; i++) {
+        if (posts[i].id_post == Number(id)) {
+            element = posts[i]
+            for (let j = 0; j < users.length; j++) {
+                if (posts[i].user == users[j].id) {
+                    dataUser = users[j]
+                }
+            }
+        }
+    }
+    console.log(dataUser)
+
+    modal.className = "modal"
+
+    user.className = "user"
+
+    img.className = "user__img"
+    img.src = dataUser.img
+    img.alt = dataUser.user
+
+    title.className = "title"
+
+    name.innerText = dataUser.user
+    name.className = "user__h4"
+
+    info.innerText = dataUser.stack
+    info.className = "user__p"
+
+    h2.innerText = element.title
+
+    p.innerText = element.text
+
+    close.innerText = "X"
+    close.className = "close__modal"
+    close.addEventListener("click", () => {
+        modal.remove()
+        document.querySelector('.container__modal').close()
+    })
+
+    title.append(name, info)
+    user.append(img, title)
+    modal.append(close, user, h2, p)
+
+    return modal
+}

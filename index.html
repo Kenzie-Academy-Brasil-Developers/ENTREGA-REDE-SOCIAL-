@@ -1,58 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/src/styles/style.css">
     <link rel="stylesheet" href="/src/styles/index.css">
 
+    <!-- Javascript -->
     <script src="/src/scripts/users.js" defer></script>
     <script src="/src/scripts/sugestUsers.js" defer></script>
     <script src="/src/scripts/posts.js" defer></script>
     <script src="/src/scripts/index.js" defer></script>
-
     <title>Rede Social</title>
 </head>
 
 <body>
     <header>
-        <nav>
-            <img src="/src/assets/img/logo.svg" alt="Logo">
-            <button>Sair</button>
+        <nav class="container">
+            <img src="/src/assets/img/logo.svg" alt="Logo" class="nav__img">
+            <button class="nav__button">Sair</button>
         </nav>
     </header>
-    <div class="container">
-        <main class="perfil">
-            <img src="/src/assets/img/user1.svg" alt="Perfil" class="perfil__img">
-            <div class="perfil__name">
-                <h4>Samuel Leão</h4>
-                <p>Front and Engineer</p>
+    <main class="container">
+        <section class="main__section">
+            <div class="user">
+                <img src="/src/assets/img/user1.svg" alt="user1" class="user__img">
+                <div class="title">
+                    <h4 class="user__h4">
+                        Samuel Leão
+                    </h4>
+                    <p class="user__p">
+                        Front end Engineer
+                    </p>
+                </div>
             </div>
-        </main>
-        <div class="textarea__main">
-            <input type="text" class="textarea__main--input" placeholder="Digitar título do post">
-            <textarea name="" id="" cols="" rows="" class="textarea__main--textarea"
-                placeholder="Digitar descrição do post"></textarea>
-            <button class="textarea__main--btn">Postar</button>
-        </div>
+            <div class="main__publish">
+                <input type="text" class="main__input" placeholder="Digitar título do post">
+                <textarea name="post" id="" cols="30" rows="10" class="main__text"
+                    placeholder="Digitar descrição do post"></textarea>
+                <button class="main__button">
+                    Postar
+                </button>
+            </div>
+        </section>
         <aside>
-            <div class="sugested__perfil">
-                <h2>Sugestões para você seguir</h2>
-                <div class="sugested__card">
+            <h2>
+                Sugestões para você seguir
+            </h2>
+            <div class="aside__div">
+                <div class="sugested">
 
                 </div>
             </div>
         </aside>
-        <section class="section__post">
-            <h2>Posts</h2>
-            <div class="section__card">
+    </main>
+    <section class="section__post container">
+        <h2>
+            Posts
+        </h2>
+        <div class="posts">
 
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>
+    <dialog class="container__modal">
+
+    </dialog>
 </body>
 
 </html>
