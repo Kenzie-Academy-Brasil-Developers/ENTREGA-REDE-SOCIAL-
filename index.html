@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/src/styles/style.css">
     <link rel="stylesheet" href="/src/styles/index.css">
+    <link rel="shortcut icon" href="/src/assets/img/Escudo-Nautico-Png-1024x1024.png" type="image/x-icon">
 
     <!-- Javascript -->
     <script src="/src/scripts/users.js" defer></script>
@@ -25,47 +26,49 @@
             <button class="nav__button">Sair</button>
         </nav>
     </header>
-    <main class="container">
-        <section class="main__section">
-            <div class="user">
-                <img src="/src/assets/img/user1.svg" alt="user1" class="user__img">
-                <div class="title">
-                    <h4 class="user__h4">
-                        Samuel Leão
-                    </h4>
-                    <p class="user__p">
-                        Front end Engineer
-                    </p>
+    <main class="main container">
+        <div class="switch">
+            <section class="main__section">
+                <div class="user">
+                    <img src="/src/assets/img/user1.svg" alt="user1" class="user__img">
+                    <div class="title">
+                        <h4 class="user__h4">
+                            Samuel Leão
+                        </h4>
+                        <p class="user__p">
+                            Front end Engineer
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="main__publish">
-                <input type="text" class="main__input" placeholder="Digitar título do post">
-                <textarea name="post" id="" cols="30" rows="10" class="main__text"
-                    placeholder="Digitar descrição do post"></textarea>
-                <button class="main__button">
-                    Postar
-                </button>
+                <div class="main__publish">
+                    <input type="text" class="main__input" placeholder="Digitar título do post">
+                    <textarea name="post" id="" cols="30" rows="10" class="main__text"
+                        placeholder="Digitar descrição do post"></textarea>
+                    <button class="main__button">
+                        Postar
+                    </button>
+                </div>
+            </section>
+            <aside>
+                <h2>
+                    Sugestões para você seguir
+                </h2>
+                <div class="aside__div">
+                    <div class="sugested">
+
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <section class="section__post">
+            <h2>
+                Posts
+            </h2>
+            <div class="posts">
+
             </div>
         </section>
-        <aside>
-            <h2>
-                Sugestões para você seguir
-            </h2>
-            <div class="aside__div">
-                <div class="sugested">
-
-                </div>
-            </div>
-        </aside>
     </main>
-    <section class="section__post container">
-        <h2>
-            Posts
-        </h2>
-        <div class="posts">
-
-        </div>
-    </section>
     <dialog class="container__modal">
 
     </dialog>
